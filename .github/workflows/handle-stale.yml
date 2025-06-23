@@ -1,0 +1,34 @@
+name: 'Close stale issues'
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          debug-only: true
+          operations-per-run: 1000
+          stale-issue-message: >
+            This issue has been marked as stale due to inactivity over an extended period. If this is still an active concern, please leave a comment to let us know, something as simple as "bump" is enough to keep it open. Otherwise, it will be closed automatically in the coming days.
+          close-issue-message: >
+            Since there hasn’t been any recent activity, we’re closing this issue for now. If you believe it still needs attention, you’re welcome to comment or reopen it at any time. Thanks for your understanding!
+          days-before-stale: 60
+          days-before-close: 30
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          any-of-issue-labels: 'bug,documentation,duplicate,enhacement,good-first-issue,help-wanted,invalid,more-info,question,triage,wontfix,work-in-progress'
+      - uses: actions/stale@v9
+        with:
+          debug-only: true
+          operations-per-run: 1000
+          stale-issue-message: >
+            This issue has been marked as stale due to inactivity over an extended period. If this is still an active concern, please leave a comment to let us know, something as simple as "bump" is enough to keep it open. Otherwise, it will be closed automatically in the coming days.
+          close-issue-message: >
+            Since there hasn’t been any recent activity, we’re closing this issue for now. If you believe it still needs attention, you’re welcome to comment or reopen it at any time. Thanks for your understanding!
+          days-before-stale: -1
+          days-before-close: 330
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
